@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -52,7 +51,6 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Glassmorphism Styles */
         .glass-header {
             background: rgba(255, 255, 255, 0.82);
             backdrop-filter: blur(16px);
@@ -83,7 +81,6 @@
             box-shadow: 0 12px 24px -4px rgba(225, 29, 72, 0.12);
         }
 
-        /* Compact Slim Glass Navigation Bar */
         .glass-floating-nav {
             background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(20px) saturate(180%);
@@ -135,7 +132,7 @@
 </head>
 <body class="text-slate-800 pb-20">
 
-    <!-- Top Header Navigation Bar -->
+    <!-- Top Header -->
     <header class="sticky top-0 z-40 glass-header shadow-sm">
         <div class="max-w-md mx-auto px-4 py-2.5 flex items-center justify-between">
             <div class="flex items-center gap-2.5 cursor-pointer" onclick="switchTab('home')">
@@ -144,7 +141,7 @@
                 </div>
                 <div>
                     <div class="text-[9px] text-aura-700 font-bold tracking-widest uppercase">Aura Luxe</div>
-                    <div class="text-xs font-black text-slate-900 leading-tight">Aura Luxe</div>
+                    <div class="text-xs font-black text-slate-900 leading-tight">متجر أورا لوكس</div>
                 </div>
             </div>
 
@@ -161,50 +158,45 @@
         </div>
     </header>
 
-    <!-- Main Dynamic Application Container -->
+    <!-- Main Container -->
     <main class="max-w-md mx-auto px-3.5 pt-3 min-h-screen">
 
-        <!-- ================= HOME TAB (STORE CATALOG) ================= -->
+        <!-- ================= HOME TAB ================= -->
         <section id="tab-home" class="tab-content block space-y-4">
-
-            <!-- Search Field -->
+            <!-- Search -->
             <div class="relative">
-                <input type="text" id="searchInput" oninput="handleSearch()" placeholder="ابحثي عن مستحضر، حقيبة، عطر..." class="w-full pl-4 pr-10 py-2.5 rounded-xl glass-card text-xs font-semibold focus:outline-none focus:border-aura-600 border border-white/80 transition">
+                <input type="text" id="searchInput" oninput="handleSearch()" placeholder="ابحثي عن سنفرة، مسكارا، عطر، أظافر..." class="w-full pl-4 pr-10 py-2.5 rounded-xl glass-card text-xs font-semibold focus:outline-none focus:border-aura-600 border border-white/80 transition">
                 <i class="fa-solid fa-magnifying-glass absolute right-3.5 top-3 text-slate-400 text-xs"></i>
             </div>
 
-            <!-- Hero Glass Promo Banner -->
+            <!-- Promo Banner -->
             <div class="glass-panel rounded-2xl p-4 relative overflow-hidden bg-gradient-to-br from-rose-500/10 via-white/50 to-aura-600/15 border border-white">
                 <div class="relative z-10 space-y-1.5 max-w-[75%]">
                     <span class="bg-gradient-to-r from-aura-700 to-aura-600 text-white text-[9px] font-extrabold px-2.5 py-0.5 rounded-full uppercase inline-block shadow-sm">
                         Aura Luxe ✨
                     </span>
-                    <h2 class="text-sm font-black text-slate-900 leading-tight">جمالكِ يستحق الأفضل دائماً</h2>
-                    <p class="text-[10px] text-slate-600">خصومات مميزة على أرقى مستحضرات التجميل، الحقائب العصرية، والعطور الساحرة.</p>
+                    <h2 class="text-sm font-black text-slate-900 leading-tight">مستحضرات العناية والجمال الأصلية</h2>
+                    <p class="text-[10px] text-slate-600">أرقى منتجات العناية بالبشرة، الماكياج، والإكسسوارات لمنزل عصري وأنيق.</p>
                 </div>
                 <div class="absolute -left-2 -bottom-2 text-6xl opacity-80 pointer-events-none">
                     💄
                 </div>
             </div>
 
-            <!-- Categories Horizontal Slider -->
+            <!-- Categories Slider -->
             <div class="space-y-1.5">
                 <h3 class="font-bold text-[11px] text-slate-700">أقسام المتجر</h3>
-                <div class="flex gap-1.5 overflow-x-auto hide-scrollbar py-0.5" id="categoriesSlider">
-                    <!-- Dynamic Category Pills -->
-                </div>
+                <div class="flex gap-1.5 overflow-x-auto hide-scrollbar py-0.5" id="categoriesSlider"></div>
             </div>
 
             <!-- Products Grid -->
             <div class="space-y-2.5">
                 <div class="flex items-center justify-between">
-                    <h3 class="font-bold text-xs text-slate-900" id="sectionTitle">أحدث التشكيلات</h3>
+                    <h3 class="font-bold text-xs text-slate-900" id="sectionTitle">منتجات أورا لوكس</h3>
                     <span class="text-[10px] text-slate-500 font-semibold" id="itemsCountText">0 منتج</span>
                 </div>
 
-                <div class="grid grid-cols-2 gap-2.5" id="productsGrid">
-                    <!-- Dynamic Products Cards -->
-                </div>
+                <div class="grid grid-cols-2 gap-2.5" id="productsGrid"></div>
             </div>
         </section>
 
@@ -216,16 +208,13 @@
                 <div class="text-5xl text-rose-200">🛍️</div>
                 <p class="text-slate-500 font-bold text-xs">حقيبة التسوق فارغة حالياً</p>
                 <button onclick="switchTab('home')" class="bg-gradient-to-r from-aura-700 to-aura-600 text-white font-bold text-[11px] px-4 py-2 rounded-xl shadow-md hover:opacity-95 transition">
-                    تصفحي التشكيلة الآن
+                    تصفحي المنتجات الآن
                 </button>
             </div>
 
             <div id="cartFilledState" class="hidden space-y-3">
-                <div id="cartItemsList" class="space-y-2">
-                    <!-- Dynamic Cart Items -->
-                </div>
+                <div id="cartItemsList" class="space-y-2"></div>
 
-                <!-- Customer Delivery Details Form -->
                 <div class="glass-panel p-3.5 rounded-2xl space-y-2.5">
                     <h3 class="font-bold text-xs text-slate-900 border-b pb-1.5 flex items-center gap-1.5">
                         <i class="fa-solid fa-truck-sparkles text-aura-600"></i>
@@ -248,12 +237,11 @@
                         </div>
                         <div>
                             <label class="block text-[10px] font-bold text-slate-700 mb-0.5">العنوان التفصيلي ومكان الاستلام <span class="text-red-500">*</span></label>
-                            <textarea id="shippingAddress" oninput="saveCustomerDataLocally()" rows="2" required placeholder="اسم الشارع، رقم البناية، الشقة، علامة مميزة..." class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-aura-600 glass-card"></textarea>
+                            <textarea id="shippingAddress" oninput="saveCustomerDataLocally()" rows="2" required placeholder="اسم الشارع، رقم البناية، الشقة..." class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-aura-600 glass-card"></textarea>
                         </div>
                     </div>
                 </div>
 
-                <!-- Order Summary & Payment Gateways -->
                 <div class="glass-panel p-3.5 rounded-2xl space-y-2.5">
                     <h3 class="font-bold text-xs text-slate-900 border-b pb-1.5">ملخص الفاتورة</h3>
                     <div class="flex justify-between text-xs text-slate-600">
@@ -269,7 +257,6 @@
                         <span id="cartTotal" class="text-aura-600">0 ج.م</span>
                     </div>
 
-                    <!-- Payment Gateways Options -->
                     <div class="space-y-1.5 border-t pt-2">
                         <label class="block text-[11px] font-bold text-slate-700">وسيلة الدفع المفضلة:</label>
                         <div class="grid grid-cols-1 gap-1.5 text-xs">
@@ -305,7 +292,7 @@
             </div>
         </section>
 
-        <!-- ================= COMPLAINTS & CONTACT TAB ================= -->
+        <!-- ================= SUPPORT TAB ================= -->
         <section id="tab-support" class="tab-content hidden space-y-3">
             <h2 class="text-sm font-bold text-slate-900 border-r-4 border-aura-600 pr-2">التواصل والدعم الفني</h2>
 
@@ -315,22 +302,21 @@
                         <i class="fa-solid fa-headset"></i>
                     </div>
                     <h3 class="font-bold text-xs text-slate-900">نحن في خدمتكِ دائماً</h3>
-                    <p class="text-[10px] text-slate-500">يسعدنا استقبال استفساراتكِ، ملاحظاتكِ، أو استشارات الجمال.</p>
+                    <p class="text-[10px] text-slate-500">يسعدنا استقبال استفساراتكِ وملاحظاتكِ.</p>
                 </div>
 
                 <form onsubmit="handleSupportSubmit(event)" class="space-y-2.5">
                     <div>
                         <label class="block text-[10px] font-bold text-slate-700 mb-0.5">نوع الموضوع</label>
                         <select id="supportType" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-aura-600 glass-card">
-                            <option value="استفسار عن منتج">استفسار عن منتج أو درجة</option>
+                            <option value="استفسار عن منتج">استفسار عن منتج</option>
                             <option value="متابعة طلب">متابعة حالة طلب</option>
-                            <option value="طلب منتج خاص">طلب منتج/درجة غير متوفرة</option>
                             <option value="اقتراح أو ملاحظة">شكوى أو اقتراح</option>
                         </select>
                     </div>
                     <div>
                         <label class="block text-[10px] font-bold text-slate-700 mb-0.5">الاسم</label>
-                        <input type="text" id="supportName" required placeholder="اسمكِ الكريمة" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-aura-600 glass-card">
+                        <input type="text" id="supportName" required placeholder="اسمكِ الكريم" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-aura-600 glass-card">
                     </div>
                     <div>
                         <label class="block text-[10px] font-bold text-slate-700 mb-0.5">رقم الهاتف / الواتساب</label>
@@ -343,13 +329,13 @@
 
                     <button type="submit" class="w-full bg-slate-900 text-white font-bold py-2.5 rounded-xl text-xs shadow hover:bg-slate-800 transition flex items-center justify-center gap-1.5">
                         <i class="fa-solid fa-paper-plane"></i>
-                        <span>إرسال لـ Aura Luxe</span>
+                        <span>إرسال لمتجر أورا لوكس</span>
                     </button>
                 </form>
             </div>
         </section>
 
-        <!-- ================= CUSTOMER PROFILE TAB (DATA MANAGEMENT) ================= -->
+        <!-- ================= PROFILE TAB ================= -->
         <section id="tab-profile" class="tab-content hidden space-y-3">
             <h2 class="text-sm font-bold text-slate-900 border-r-4 border-aura-600 pr-2">بيانات العميل والشحن</h2>
 
@@ -360,7 +346,7 @@
                     </div>
                     <div>
                         <h3 class="font-extrabold text-xs text-slate-900">ملف بيانات الشحن والتواصل</h3>
-                        <p class="text-[10px] text-slate-500">احفظي بياناتكِ ليسهل التوصيل المباشر عند الطلب</p>
+                        <p class="text-[10px] text-slate-500">احفظي بياناتكِ لتسهيل الطلب السريع</p>
                     </div>
                 </div>
 
@@ -375,7 +361,7 @@
                     </div>
                     <div>
                         <label class="block text-[10px] font-bold text-slate-700 mb-0.5">المحافظة</label>
-                        <input type="text" id="profGov" placeholder="مثال: القاهرة" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-aura-600 glass-card">
+                        <input type="text" id="profGov" placeholder="مثال: الجيزة" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-aura-600 glass-card">
                     </div>
                     <div>
                         <label class="block text-[10px] font-bold text-slate-700 mb-0.5">العنوان التفصيلي</label>
@@ -388,30 +374,11 @@
                     </button>
                 </div>
             </div>
-
-            <div class="glass-panel rounded-2xl p-3.5 space-y-2">
-                <h4 class="font-bold text-xs text-slate-800 mb-1 flex items-center gap-1.5">
-                    <i class="fa-solid fa-crown text-amber-500"></i>
-                    <span>مميزات التسوق من Aura Luxe</span>
-                </h4>
-                <div class="flex items-center gap-2.5 text-[11px] text-slate-600">
-                    <i class="fa-solid fa-truck-fast text-aura-600"></i>
-                    <span>توصيل سريع وآمن لجميع المحافظات</span>
-                </div>
-                <div class="flex items-center gap-2.5 text-[11px] text-slate-600 border-t pt-1.5">
-                    <i class="fa-solid fa-gem text-aura-600"></i>
-                    <span>منتجات عالية الجودة وتغليف فاخر</span>
-                </div>
-                <div class="flex items-center gap-2.5 text-[11px] text-slate-600 border-t pt-1.5">
-                    <i class="fa-solid fa-arrow-rotate-left text-aura-600"></i>
-                    <span>دعم وتواصل مباشر وسريع بعد البيع</span>
-                </div>
-            </div>
         </section>
 
     </main>
 
-    <!-- Compact Slim Glass Floating Navigation Bar -->
+    <!-- Bottom Navigation Bar -->
     <div class="fixed bottom-3 left-0 right-0 z-40 px-6 pointer-events-none">
         <nav class="glass-floating-nav max-w-xs mx-auto rounded-2xl p-1 flex justify-around items-center text-center pointer-events-auto">
             <button onclick="switchTab('home')" id="nav-home" class="nav-tab-btn active-tab flex flex-col items-center justify-center w-1/4 py-0.5">
@@ -457,45 +424,37 @@
         </div>
     </div>
 
-    <!-- App Main Script Logic -->
+    <!-- Script Logic -->
     <script>
-        // Telegram Bot Credentials (Silent Background Listener)
         const TELEGRAM_BOT_TOKEN = '8954954513:AAEI_ytqmV1B3s7nlmimExAriB5PTZb2cDo';
         const TELEGRAM_CHAT_ID = '8822878494';
 
-        // Aura Luxe Product Catalog (Cosmetics, Bags, Perfumes, Skincare)
-        const categories = ["الكل", "مستحضرات تجميل", "شنط وحقائب", "عناية بالبشرة", "عطور فاخرة", "إكسسوارات"];
+        const categories = ["الكل", "عناية بالبشرة والجسم", "مكياج وتجميل", "إكسسوارات وعناية شخصية", "عطور وبودر سبلاش"];
         
+        // منتجات متجر أورا لوكس الفعلية بناءً على صورك
         const products = [
-            // مستحضرات تجميل
-            { id: 1, name: "أحمر شفاه مخملي - Velvet Rose", category: "مستحضرات تجميل", price: 320, image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400" },
-            { id: 2, name: "لوحة ظلال العيون Rose Gold", category: "مستحضرات تجميل", price: 580, image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400" },
-            { id: 3, name: "ماسكارا تكثيف الرموش الفاخرة", category: "مستحضرات تجميل", price: 290, image: "https://images.unsplash.com/photo-1560700320-1a7fbc265e34?w=400" },
-            { id: 4, name: "كريم أساس مضيء Glow Foundation", category: "مستحضرات تجميل", price: 490, image: "https://images.unsplash.com/photo-1599733589046-9b8308b5b50d?w=400" },
-
-            // شنط وحقائب
-            { id: 5, name: "حقيبة يد جلدية كلاسيك - Aura Luxe Bag", category: "شنط وحقائب", price: 1250, image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400" },
-            { id: 6, name: "شنطة كروس صغيرة أنيقة للظهر والمناسبات", category: "شنط وحقائب", price: 890, image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400" },
-            { id: 7, name: "حقيبة سهرة براقة ذات سلسلة ذهبية", category: "شنط وحقائب", price: 980, image: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400" },
-
-            // عناية بالبشرة
-            { id: 8, name: "سيروم هيلارونيك أسيد للنضارة الفائقة", category: "عناية بالبشرة", price: 420, image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400" },
-            { id: 9, name: "زيت ترطيب وترميم البشرة الليلية", category: "عناية بالبشرة", price: 360, image: "https://images.unsplash.com/photo-1608248597261-83d3b763428d?w=400" },
-            { id: 10, name: "مجموعة كريم الترطيب وفيتامين C", category: "عناية بالبشرة", price: 650, image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400" },
-
-            // عطور فاخرة
-            { id: 11, name: "عطر Aura Luxe Signature (100ml)", category: "عطور فاخرة", price: 1450, image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400" },
-            { id: 12, name: "عطر الفانيليا والزهور النادرة (50ml)", category: "عطور فاخرة", price: 950, image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400" },
-
-            // إكسسوارات
-            { id: 13, name: "طقم أقراط وإسورة مطلي بالذهب", category: "إكسسوارات", price: 450, image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400" },
-            { id: 14, name: "نظارة شمسية كلاسيكية نسائية", category: "إكسسوارات", price: 520, image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400" }
+            { id: 1, name: "سنفرة ستاركي بالصبار للوجه والجسم", category: "عناية بالبشرة والجسم", price:35, image: "https://i.ibb.co/3mY9w0b/189318.jpg" },
+            { id: 2, name: "مسكارا مي إب رتي لتكثيف الرموش (Miss Pretty Lash)", category: "مكياج وتجميل", price: 65, image: "https://i.ibb.co/6R5h4vJ/189315.jpg" },
+            { id: 3, name: "طقم عناية بالقدمين والأظافر (Esbine)", category: "إكسسوارات وعناية شخصية", price: 35, image: "https://i.ibb.co/8b7v3m2/189291.jpg" },
+            { id: 4, name: "سنفرة بلوب للشعر والجسم (Blob Scrub)", category: "عناية بالبشرة والجسم", price:45, image: "https://i.ibb.co/9V5x1z8/189261.jpg" },
+            { id: 5, name: "موس حلاقة الوجه والجسم فينر فلامينجو", category: "إكسسوارات وعناية شخصية", price:25, image: "https://i.ibb.co/1K7x5m9/189327.jpg" },
+            { id: 6, name: "أظافر تركيب جل ناعمة روز بيري", category: "مكياج وتجميل", price: 30, image: "https://i.ibb.co/2m4x8z1/189392.jpg" },
+            { id: 7, name: "سبلاش للجسم برائحة سكاندال جولد", category: "عطور وبودر سبلاش", price: 210, image: "https://i.ibb.co/5k9x2m4/189401.jpg" },
+            { id: 8, name: "سبلاش للجسم سكاندال وأوليمبيا", category: "عطور وبودر سبلاش", price: 30, image: "https://i.ibb.co/7n2x4m8/189407.jpg" },
+            { id: 9, name: "ماء الورد الطبيعي رويال كوين", category: "عناية بالبشرة والجسم", price: 30, image: "https://i.ibb.co/4m6x1z9/189405.jpg" },
+            { id: 10, name: "قشطة الأميرات بالكولاجين المرطبة", category: "عناية بالبشرة والجسم", price: 45, image: "https://i.ibb.co/8n1x3m5/189398.jpg" },
+            { id: 11, name: "جل الصبار الطبيعي المرقي", category: "عناية بالبشرة والجسم", price: 25, image: "https://i.ibb.co/3m2x5z7/189312.jpg" },
+            { id: 12, name: "كريم فولدكس لتفتيح البشرة (Foldex)", category: "عناية بالبشرة والجسم", price: 240, image: "https://i.ibb.co/9n4x1z2/189306.jpg" },
+            { id: 13, name: "أحمر شفاه مات رومانتيج (Lipgloss)", category: "مكياج وتجميل", price: 90, image: "https://i.ibb.co/2n7x4m1/189300.jpg" },
+            { id: 14, name: "أظافر تركيب كلاسيكية زرقاء مرصعة", category: "مكياج وتجميل", price:30, image: "https://i.ibb.co/5m1x8z9/189258.jpg" },
+            { id: 15, name: "موس حلاقة وتحديد الحواجب (Tineke)", category: "إكسسوارات وعناية شخصية", price: 65, image: "https://i.ibb.co/1n8x2m4/189243.jpg" },
+            { id: 16, name: "رموش لوف مي بيوتي 100% شعر طبيعي", category: "مكياج وتجميل", price: 95, image: "https://i.ibb.co/6m4x2z1/189333.jpg" },
+            { id: 17, name: "مبرد ومجموعة مناكير للأظافر", category: "إكسسوارات وعناية شخصية", price: 70, image: "https://i.ibb.co/7m1x3z5/189321.jpg" }
         ];
 
         let cart = [];
         let selectedCategory = "الكل";
 
-        // Initialize App
         function initApp() {
             renderCategories();
             renderProducts();
@@ -554,7 +513,6 @@
             renderProducts(filtered);
         }
 
-        // Cart Actions
         function addToCart(productId) {
             const item = products.find(p => p.id === productId);
             const cartItem = cart.find(c => c.id === productId);
@@ -619,7 +577,6 @@
             updateCartUI();
         }
 
-        // Customer Data Local Storage Functions
         function saveCustomerDataLocally() {
             const name = document.getElementById('shippingName').value.trim();
             const phone = document.getElementById('shippingPhone').value.trim();
@@ -629,7 +586,6 @@
             const data = { name, phone, gov, address };
             localStorage.setItem('auraLuxeCustomer', JSON.stringify(data));
             
-            // Sync with profile tab fields
             document.getElementById('profName').value = name;
             document.getElementById('profPhone').value = phone;
             document.getElementById('profGov').value = gov;
@@ -670,7 +626,6 @@
             const data = { name, phone, gov, address };
             localStorage.setItem('auraLuxeCustomer', JSON.stringify(data));
 
-            // Sync with cart shipping fields
             document.getElementById('shippingName').value = name;
             document.getElementById('shippingPhone').value = phone;
             document.getElementById('shippingGov').value = gov;
@@ -688,27 +643,26 @@
             const address = document.getElementById('shippingAddress').value.trim();
 
             if (!name || !phone || !gov || !address) {
-                showAlert("بيانات ناقصة", "يرجى ملء جميع بيانات استلام الطلب (الاسم، الهاتف، المحافظة، والعنوان).");
+                showAlert("بيانات ناقصة", "يرجى ملء جميع بيانات استلام الطلب.");
                 return;
             }
 
             const payment = document.querySelector('input[name="paymentGateway"]:checked').value;
 
-            let msg = `✨ **طلب شراء جديد من Aura Luxe**\n\n👤 **بيانات العميل والشحن:**\n- الاسم: ${name}\n- الهاتف: ${phone}\n- المحافظة: ${gov}\n- العنوان: ${address}\n\n💳 **وسيلة الدفع:** ${payment}\n\n🛍️ **المنتجات المطلوبة:**\n`;
+            let msg = `✨ **طلب شراء جديد من أورا لوكس (Aura Luxe)**\n\n👤 **بيانات العميل:**\n- الاسم: ${name}\n- الهاتف: ${phone}\n- المحافظة: ${gov}\n- العنوان: ${address}\n\n💳 **الدفع:** ${payment}\n\n🛍️ **المنتجات:**\n`;
             cart.forEach(i => {
                 msg += `- ${i.name} (عدد ${i.quantity}) بسعر ${i.price * i.quantity} ج.م\n`;
             });
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            msg += `\n💰 **إجمالي الطلب:** ${total} ج.م`;
+            msg += `\n💰 **الإجمالي:** ${total} ج.م`;
 
             await sendTelegramSilent(msg);
-            showAlert("تم استلام الطلب", `شكراً لكِ يا ${name}! تم استلام طلبكِ وتأكيده بنجاح، وسنتواصل معكِ فوراً للشحن 🤍.`);
+            showAlert("تم استلام الطلب", `شكراً لكِ يا ${name}! تم إرسال طلبكِ بنجاح وسنتواصل معكِ للشحن 🤍.`);
             cart = [];
             updateCartUI();
             switchTab('home');
         }
 
-        // Support & Complaints Submission
         async function handleSupportSubmit(e) {
             e.preventDefault();
             const type = document.getElementById('supportType').value;
@@ -716,14 +670,13 @@
             const phone = document.getElementById('supportPhone').value;
             const message = document.getElementById('supportMessage').value;
 
-            const text = `📬 **رسالة جديدة (تواصل / استفسار) - Aura Luxe**\n\nالموضوع: ${type}\nالاسم: ${name}\nالهاتف: ${phone}\n\nالرسالة:\n${message}`;
+            const text = `📬 **رسالة جديدة - أورا لوكس**\n\nالموضوع: ${type}\nالاسم: ${name}\nالهاتف: ${phone}\n\nالرسالة:\n${message}`;
 
             await sendTelegramSilent(text);
-            showAlert("تم الإرسال بنجاح", "تم إرسال رسالتكِ لفريق دعم Aura Luxe وسنتواصل معكِ في أقرب وقت.");
+            showAlert("تم الإرسال بنجاح", "تم إرسال رسالتكِ لفريق الدعم وسنتواصل معكِ قريباً.");
             e.target.reset();
         }
 
-        // Silent Telegram Data Sender
         async function sendTelegramSilent(text) {
             const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
             try {
@@ -732,12 +685,9 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: text, parse_mode: 'Markdown' })
                 });
-            } catch (err) {
-                console.log("Transmission sent.");
-            }
+            } catch (err) {}
         }
 
-        // Navigation Switcher
         function switchTab(tab) {
             const tabs = ['home', 'cart', 'support', 'profile'];
             tabs.forEach(t => {
